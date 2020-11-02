@@ -23,7 +23,7 @@ class AuthorsGetService {
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")  // the request is JSON
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Accept")        // the expected response is also JSON
         request.httpMethod = "GET"
-        print(url.absoluteString)
+        //print(url.absoluteString)
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
@@ -34,7 +34,7 @@ class AuthorsGetService {
                 print("Wrong data")
                 return
             }
-            print(String(data: data, encoding: .utf8))
+            //print(String(data: data, encoding: .utf8))
             let decode = JSONDecoder()
             do {
                 let result = try decode.decode(Authors.self, from: data)

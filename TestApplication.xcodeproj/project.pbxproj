@@ -16,8 +16,8 @@
 		F5223E0C25502E75008E079D /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5223E0B25502E75008E079D /* DataFetcher.swift */; };
 		F5223E1425502EBA008E079D /* ModelAuthor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5223E1325502EBA008E079D /* ModelAuthor.swift */; };
 		F5223E1725502FE3008E079D /* AuthorsGetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5223E1625502FE3008E079D /* AuthorsGetService.swift */; };
-		F5223E1B255076D9008E079D /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5223E1A255076D9008E079D /* SearchBar.swift */; };
-		F5223E2025507B82008E079D /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5223E1F25507B82008E079D /* SearchBar.swift */; };
+		F5223E2C255084BB008E079D /* AuthorDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5223E2B255084BB008E079D /* AuthorDetailView.swift */; };
+		F5223E3225508E65008E079D /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5223E3125508E65008E079D /* SearchBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,8 +32,8 @@
 		F5223E0B25502E75008E079D /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
 		F5223E1325502EBA008E079D /* ModelAuthor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelAuthor.swift; sourceTree = "<group>"; };
 		F5223E1625502FE3008E079D /* AuthorsGetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorsGetService.swift; sourceTree = "<group>"; };
-		F5223E1A255076D9008E079D /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
-		F5223E1F25507B82008E079D /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		F5223E2B255084BB008E079D /* AuthorDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorDetailView.swift; sourceTree = "<group>"; };
+		F5223E3125508E65008E079D /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +69,7 @@
 				F5223E1225502EA7008E079D /* Models */,
 				F5223E0325502C12008E079D /* NetworkServices */,
 				F5223DF325502836008E079D /* TestApplicationApp.swift */,
-				F5223E1E25507B64008E079D /* ElementsInterface */,
+				F5223E2625507D2F008E079D /* InterfaceElements */,
 				F5223E19255076C1008E079D /* Views */,
 				F5223DF725502836008E079D /* Assets.xcassets */,
 				F5223DFC25502836008E079D /* Info.plist */,
@@ -109,17 +109,17 @@
 			isa = PBXGroup;
 			children = (
 				F5223DF525502836008E079D /* ContentView.swift */,
-				F5223E1A255076D9008E079D /* SearchBar.swift */,
+				F5223E2B255084BB008E079D /* AuthorDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		F5223E1E25507B64008E079D /* ElementsInterface */ = {
+		F5223E2625507D2F008E079D /* InterfaceElements */ = {
 			isa = PBXGroup;
 			children = (
-				F5223E1F25507B82008E079D /* SearchBar.swift */,
+				F5223E3125508E65008E079D /* SearchBar.swift */,
 			);
-			path = ElementsInterface;
+			path = InterfaceElements;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,9 +195,9 @@
 				F5223E0925502CB2008E079D /* NetworkDataFetcher.swift in Sources */,
 				F5223DF625502836008E079D /* ContentView.swift in Sources */,
 				F5223E0525502C9C008E079D /* NetworkService.swift in Sources */,
+				F5223E2C255084BB008E079D /* AuthorDetailView.swift in Sources */,
 				F5223E1425502EBA008E079D /* ModelAuthor.swift in Sources */,
-				F5223E2025507B82008E079D /* SearchBar.swift in Sources */,
-				F5223E1B255076D9008E079D /* SearchBar.swift in Sources */,
+				F5223E3225508E65008E079D /* SearchBar.swift in Sources */,
 				F5223E1725502FE3008E079D /* AuthorsGetService.swift in Sources */,
 				F5223DF425502836008E079D /* TestApplicationApp.swift in Sources */,
 			);

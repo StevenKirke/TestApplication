@@ -8,6 +8,7 @@
 import SwiftUI
 
 class ContentViewModel: ObservableObject {
+        
     @Published var autors = [Author]()
     let servise = AuthorsGetService()
     
@@ -26,34 +27,54 @@ class ContentViewModel: ObservableObject {
 
 struct ContentView: View {
     @ObservedObject var viewModel = ContentViewModel()
-    @State var search: String = "fdsf"
+    @State private var searchText = ""
+    let array = ["Peter", "Paul", "Mary", "Anna-Lena", "George",
+                         "John", "Greg", "Thomas", "Robert", "Bernie", "Mike",
+                         "Benno", "Hugo", "Miles", "Michael", "Mikel", "Tim",
+                         "Tom", "Lottie", "Lorrie", "Barbara", "Lottie", "Lorrie", "Barbara"]
     
     var body: some View {
         NavigationView {
+            List {
+                SearchBar(text: $searchText)
+                    //.padding(.leading, )
+                ForEach(array, id: \.self) { elem in
+                    Text(elem)
+                        .background(NavigationLink("", destination: AuthorDetailView(author: elem)))
+                }
+            }
+            .navigationBarTitle(Text("Author"), displayMode: .inline)
+        }
+    }
+}
+            /*
             VStack {
-                TextField("", text: $search, onEditingChanged: { (_) in
-                    print("1")
-                }, onCommit: {
-                    viewModel.request(search: search)
-                })
+                SearchBar(text: $searchText)
+                    .padding(.top, 30)
                 List {
-                    ForEach(viewModel.autors) { author in
-                        if let name  = author.authorfirst {
+                    ForEach(array, id: \.self) { element in
+                        if let name = element {
                             Text(name)
+                                .background(NavigationLink("", destination: AuthorDetailView(author: name)))
                         }
-
                     }
+                    /*
+                    ForEach(array) { author in
+                        if let name = author.authorfirst {
+                            Text(name)
+                                .background(NavigationLink("", destination: AuthorDetailView(author: name)))
+                        }
+                    }
+                    */
                 }
                 .navigationBarTitle(Text("Author"), displayMode: .inline)
             }
         }
         .onAppear(perform: {
-            viewModel.request(search: search)
+            viewModel.request(search: searchText)
         })
-    }
-    
+             */
 
-}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
@@ -61,28 +82,10 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-
 /*
- struct ElementTextField: View {
-     @Binding var name: String
-     var body: some View {
-         TextField("Enter name", text: $name)
-             .padding(.leading)
-             .accentColor(.white)
-             .foregroundColor(.white)
-             .frame(width: 280, height: 40, alignment: .center)
-             .background(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.3058823529, green: 0.3137254902, blue: 0.3490196078, alpha: 1)), Color(#colorLiteral(red: 0.4156862745, green: 0.4235294118, blue: 0.4431372549, alpha: 1))]),
-                                        startPoint: .trailing,
-                                        endPoint: .leading)
-             .cornerRadius(10)
-             .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
-         )
-     }
- }
-
- struct ElementTextField_Previews: PreviewProvider {
-     static var previews: some View {
-         StatefulPreviewWrapper("ss") { ElementTextField(name: $0) }
-     }
- }
+ TextField("", text: $searchText, onEditingChanged: { (_) in
+     print("1")
+ }, onCommit: {
+     viewModel.request(search: searchText)
+ })
  */
