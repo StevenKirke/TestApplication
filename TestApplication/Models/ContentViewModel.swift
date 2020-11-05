@@ -31,7 +31,6 @@ class ContentViewModel: ObservableObject {
             case .none:
                 self.authors =  []
             case .some(let authors):
-                print(authors)
                 self.authors = authors.author ?? []
             }
         }
