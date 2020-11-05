@@ -8,13 +8,21 @@
 import SwiftUI
 
 struct SearchBar: View {
-    @Binding var text: String
+    @Binding var text: String {
+        didSet {
+            action()
+        }
+    }
     @State private var isEditing = false
-    @ObservedObject var viewModel = ContentViewModel()
+    var action: () -> Void
+    var buttonAction:  () -> Void
             
     var body: some View {
         HStack {
-            TextField("Search ...", text: $text)
+            TextField("Search ...", text: $text, onEditingChanged: { ( change ) in
+                
+            }, onCommit: {
+            })
                 .padding(7)
                 .padding(.horizontal, 25)
                 .background(Color(.systemGray6))
@@ -29,6 +37,7 @@ struct SearchBar: View {
                         if isEditing {
                             Button(action: {
                                 self.text = ""
+                                buttonAction()
                             }) {
                                 Image(systemName: "multiply.circle.fill")
                                     .foregroundColor(.gray)
@@ -40,7 +49,6 @@ struct SearchBar: View {
                 .padding(.horizontal, 10)
                 .onTapGesture {
                     self.isEditing = true
-                    viewModel.request(search: text)
                 }
             
             if isEditing {
@@ -61,6 +69,7 @@ struct SearchBar: View {
 
 struct SearchBar_Previews: PreviewProvider {
     static var previews: some View {
-        SearchBar(text: .constant(""))
+        SearchBar(text: .constant(""), action: {}, buttonAction: {} )
     }
 }
+

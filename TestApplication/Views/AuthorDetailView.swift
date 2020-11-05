@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct AuthorDetailView: View {
-    let author: String
+    let author: Author
     var body: some View {
-        Text(author)
-    }
-}
-
-struct AuthorDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        AuthorDetailView(author: "")
+        VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 10) {
+            Text(author.authordisplay ?? "")
+            Text(author.authorlastfirst ?? "")
+            Text(author.spotlight?.htmlToString ?? "")
+                .multilineTextAlignment(.leading)
+            Spacer()
+        }
+        .padding()
     }
 }
